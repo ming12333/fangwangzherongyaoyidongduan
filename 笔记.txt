@@ -1,0 +1,26 @@
+mongodb+node.js+vue
+vue creat web 创建web端
+vue creat web 创建web端后台管理界面
+npm i -g nodemon创建
+cnpm i -g @vue/cli 全局创建vue命令
+vue add element安装element插件
+vue add router添加路由
+新建main.vue 粘贴https://element.eleme.cn/#/zh-CN/component/container中的代码
+在main.vue中写template
+npm run serve 启动admin
+创建Categoryedit
+请求接口来提交数据是npm i  
+在save中 npm i express mongoose  cors
+在categroylist中粘贴https://element.eleme.cn/#/zh-CN/component/table的代码
+在categroylist中粘贴https://element.eleme.cn/#/zh-CN/component/message-box的代码
+ action="$http.defaults.baseUrl+'/upload'"拼成的上传地址，此时底层是ajax需要完整的地址
+ serve中npm i multer//上传图片以后重写
+ 使用vue2editor  cnpm i --save vue2-editor// 富文本编辑器
+ 在https://www.npmjs.com/中复制代码
+ cnpm i bcrypt 安装散列密码
+ npm i  jsonwebtoken//web校验
+
+ http://mint-ui.github.io/#!/zh-cn//mint-ui的网站
+ 九宫格使用mui 
+ 
+ www.iconfont.cn//字体图标库

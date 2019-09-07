@@ -1,0 +1,14 @@
+cnpm i -d sass sass-loader 安装
+样式重置
+p{
+    color:red;
+}
+.hello{
+    h1{
+        color:red;
+    }
+}//可以写嵌套了sass
+
+vue add router//添加router路由
+npm i dayjs//格式化日期的
+npm i axios

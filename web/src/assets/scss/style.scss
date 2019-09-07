@@ -1,0 +1,216 @@
+//样式重置
+
+*{//任意元素
+box-sizing:border-box;
+outline: none;//没有外边的样式
+}//默认样式//保持边框
+
+html
+{
+    font-size:13px;//基础像素
+}
+body{
+    margin: 0;
+    background: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;//sans-serif非呈现字体
+   // line-height：1.2em;//行高
+}
+a{
+    color:#999;
+}
+//colors
+$colors:(
+    'primary':#db9e3f,
+    'info':#4b67af,
+    'white':white,
+    'block':#000,
+    'dark':#222,
+    'grey':#999,
+    'light':#f9f9f9,
+    'dark-1':#343440,
+);//sass可以使用变量
+@each $colorkey,$color in $colors {
+    .text-#{$colorkey}{
+        color:$color
+    }
+    .bg-#{$colorkey}{
+        background-color: $color
+    }
+}
+//text
+@each $var in (left,center,right) {
+    .text-#{$var}{
+        text-align:$var;
+    }
+}
+//font size
+$base-font-size:1rem;
+$font-sizes:(
+    xs:0.7692,//13px的倍数 10px
+        sm:0.9231,//12px
+        md:1,//13px
+        lg:1.076,//14px
+        xl:1.2308,//16px
+
+);
+@each $sizeKey,$size in $font-sizes {
+    .fs-#{sizekey}{
+        font-size:$size*$base-font-size;
+    }
+}
+//text overflow
+.text-ellipsis{
+ display:inline-block;
+ overflow:hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap//不换行
+}
+//flex布局
+.d-flex{
+    display: flex;
+}
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.flex-column{
+    flex-direction: column//使flex竖直布局
+}
+//若 flex-direction: column，则jc垂直，若flex-direction: row，则jc水平
+$flex-jc:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    'between':space-between,
+    'around':space-around,
+);//
+@each $key,$value in $flex-jc {
+    .jc-#{$key}{
+        justify-content: $value
+    }
+    
+}
+$flex-ai:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    between:space-between,
+    around:space-around,
+    stretch:stretch,
+);//
+@each $key,$value in $flex-ai {
+    .ai-#{$key}{
+      align-items : $value
+    }
+    
+}
+
+.flex-1{
+    flex:1,//撑满全屏。
+}
+.flex-grow-1{
+    flex-grow:1,//撑满全屏。
+}
+//边距
+//0-5,6级
+$spacing-types:(
+   m:margin,
+   p:padding,
+);
+$spacing-directions:(t:top,r:right,b:bottom,l:left);
+$spacing-base-size:1rem;//基础空间尺寸
+$spacing-size:(
+    0:0,1:0.25,2:0.5,3:1,4:1.5,5:3//倍数尺寸
+);
+@each $typekey,$type in $spacing-types{
+    //.m-1
+    @each $sizekey,$size in $spacing-size {
+        .#{$typekey}-#{$sizekey} {
+  #{$type}:$size*$spacing-base-size;
+    }
+   }
+   //.mx-1//水平方向
+   @each $sizekey,$size in $spacing-size {
+    .#{$typekey}x-#{$sizekey} {
+#{$type}-left:$size*$spacing-base-size;
+#{$type}-right:$size*$spacing-base-size;
+}
+} 
+   //.my-1//竖直方向
+   @each $sizekey,$size in $spacing-size {
+    .#{$typekey}y-#{$sizekey} {
+#{$type}-top:$size*$spacing-base-size;
+#{$type}-bottom:$size*$spacing-base-size;
+}
+} 
+ //.mt-1
+@each $directionKey,$direction in $spacing-directions {
+    @each $sizekey,$size in $spacing-size {
+   
+        .#{$typekey}#{$directionKey}-#{$sizekey} {
+
+  #{$type}-#{$direction}:$size*$spacing-base-size;
+    }
+   }
+ }  
+}
+//width,height
+.w-100{
+    width:100%;
+}
+.h-100{
+    height: 100%;
+}
+.h-50{
+   height: 50%;
+}
+//button
+.btn{
+    border:none;
+    border-radius: 0.131538;
+    font-size:map-get($font-sizes, 'sm' )*$base-font-size;
+}
+//nav
+.nav{
+    display: flex;
+  
+    .nav-item{
+        border-bottom: 3px solid transparent;
+        //transparent透明的
+        padding-bottom: 0.2rem;
+       
+   
+  &.active{ 
+      color:map-get($colors , 'primary' );
+      border-bottom-color: map-get($colors , 'primary' )
+  }  
+}  
+}
+.nav-inverse{
+    display: flex;
+ 
+    .nav-item{
+        color:map-get($colors,'white'  )
+    }
+    &.active{
+        border-bottom-color: map-get($colors,'white'  )
+    }
+}
+
+//sprite精灵图片
+.sprite{
+   // background: url(../images/menu1.png)no-repeat 0 0;
+    background-size:28.8463rem;
+    display:inline-block;
+    &.sprite-news{
+        width:1.7692rem;
+        height:1.5385rem;
+        background-position: 0   ,0;
+    }
+    &.sprite-stores{
+        width:1.7692rem;
+        height:1.5385rem;
+        background-position: 25%,10px;
+    }
+}
+//boder-color
+$border-color:map-get($colors,'block' )

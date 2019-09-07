@@ -1,0 +1,1 @@
+npm i require-all//导入某个文件下的所有文件
